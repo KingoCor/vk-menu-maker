@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vk menu maker</title>
+        <link rel="icon" href="./icon.png">
+
+        <link rel="stylesheet" href="main.css">
+        <script src="https://kit.fontawesome.com/a1b1690634.js" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="crop_img.js"></script>
+    </head>
+    <body>
+        <button class="primary icon-only back" onclick="location.href='./index.html';">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        
+        <label class="img-input">
+            <h1><span><i class="fa-solid fa-image"></i></span> <span id="file_path">Выберите изображение</span> <span class="size" id="size"></span></h1> 
+            <input accept="image/*" type='file' onchange="setImage(this)"/>
+        </label>
+       
+        <hr class="topbar-separater"/>
+
+        <div class="menu-editor-container" style="margin-top: 120px; margin-bottom: 10px;">
+            <blockquote class="make-button" id="make_button" style="display: none;">
+                <p>
+                    X1: 
+                    <input type="range" id="x1-slider" min="0" max="100" value="0" onchange="equalize(this)">
+                    <input type="number" id="x1-num" min="0" max="100" value="0" onchange="equalize(this)">
+                </p>
+                <p>
+                    Y1: 
+                    <input type="range" id="y1-slider" min="0" max="100" value="0" onchange="equalize(this)">
+                    <input type="number" id="y1-num" min="0" max="100" value="0" onchange="equalize(this)">
+                </p>
+                <p>
+                    X2: 
+                    <input type="range" id="x2-slider" min="0" max="100" value="100" onchange="equalize(this)">
+                    <input type="number" id="x2-num" min="0" max="100" value="100" onchange="equalize(this)">
+                </p>
+                <p>
+                    Y2: 
+                    <input type="range" id="y2-slider" min="0" max="100" value="100" onchange="equalize(this)">
+                    <input type="number" id="y2-num" min="0" max="100" value="100" onchange="equalize(this)">
+                </p>
+                <hr/>
+                <center><p>Сместить</p></center>
+                <div class="move-container">
+                    <button class="icon-only primary" onclick="move('y','+')"><i class="fa-solid fa-arrow-down"></i></button>
+                    <button class="icon-only primary" onclick="move('y','-')"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button class="icon-only primary" onclick="move('x','-')"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="icon-only primary" onclick="move('x','+')"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <hr/>
+                <center><button id="download" class="primary accept" onclick="downloadImage()">Скачать</button></center>
+            </blockquote>
+
+            <div id="img_preview_container" class="img-preview-container" style="display: none;">
+                <img id="source" src="#" alt="your image" class="img-preview"/>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <canvas id="img_canvas" style="display: none;"></canvas>
+        </div>
+    </body>
+</html>

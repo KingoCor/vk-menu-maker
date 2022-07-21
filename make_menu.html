@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vk menu maker</title>
+        <link rel="icon" href="./icon.png">
+
+        <link rel="stylesheet" href="main.css">
+        <script src="https://kit.fontawesome.com/a1b1690634.js" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="make_menu.js"></script>
+    </head>
+    <body>
+        <button class="primary icon-only back" onclick="location.href='./index.html';">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        
+        <div class="menu-editor-container">
+            <blockquote class="buttons-list">
+                <center>
+                    <input id="id_input" placeholder="Введите id фото" class="img-input"></input>
+                    <input id="url_input" placeholder="Введите url фото" class="img-input"></input><br/>
+                    <button class="primary" onclick="addImage()" style="padding: 10px; font-size: 12pt;">Добавить</button>
+                </center>
+                <hr/>
+                <ul id="photo_list" class="photo-list">
+                </ul>
+                <hr/>
+                <center>
+                    <button class="primary" onclick="compile()" style="padding: 10px; font-size: 12pt;">Сгенерировать текст</button>
+                </center>
+            </blockquote>
+            <table class="menu" id="menu">
+            </table>
+        </div>
+    </body>
+</html>
